@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Inspired by
+* groupId: org.apache, artifactId: apache, version: 15
+* http://central.sonatype.org/pages/apache-maven.html
+
+Probably want to extend with inspiration from https://github.com/kevinsawicki/github-maven-example/blob/master/example/pom.xml
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>ae.teletronics</groupId>
+  <artifactId>godfather</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+
+  <name>teletronics.ae</name>
+  <!-- description>
+  </description -->
+  <url>http://www.teletronics.ae</url>
+  <organization>
+    <name>teletronics.ae</name>
+    <url>http://www.teletronics.ae</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <!-- mailingLists>
+  </mailingLists -->
+
+  <prerequisites><!-- just for information: not inherited in child poms -->
+    <maven>2.2.1</maven><!-- prerequisite of some plugins -->
+  </prerequisites>
+
+  <scm>
+    <url>https://github.com/TeletronicsDotAe/maven-cross-organization</url>
+    <connection>scm:git:git://github.com/TeletronicsDotAe/maven-cross-organization.git</connection>
+    <developerConnection>scm:git:git://github.com/TeletronicsDotAe/maven-cross-organization.git</developerConnection>
+  </scm>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <!-- sourceReleaseAssemblyDescriptor>source-release</sourceReleaseAssemblyDescriptor>
+    <organization.logo>http://www.apache.org/images/asf_logo_wide.gif</organization.logo>
+    <gpg.useagent>true</gpg.useagent>
+    <arguments />
+    <!-- Specify the default compiler source/target as 1.4 for backwards compatibility
+    <maven.compiler.source>1.4</maven.compiler.source>
+    <maven.compiler.target>1.4</maven.compiler.target -->    
+  </properties>
+
+  <build>
+  </build>
+
+  <profiles>
+    <profile> 
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>2.2.1</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>2.9.1</version>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.5</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-release-plugin</artifactId>
+            <version>2.5</version>
+            <configuration>
+              <autoVersionSubmodules>true</autoVersionSubmodules>
+              <useReleaseProfile>false</useReleaseProfile>
+              <releaseProfiles>release</releaseProfiles>
+              <goals>deploy</goals>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>1.6.3</version>
+            <extensions>true</extensions>
+            <configuration>
+               <serverId>ossrh</serverId>
+               <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+               <autoReleaseAfterClose>true</autoReleaseAfterClose>
+            </configuration>
+          </plugin>      
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>
+
