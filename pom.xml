@@ -62,7 +62,7 @@ Probably want to extend with inspiration from https://github.com/kevinsawicki/gi
     <organization.logo>http://www.apache.org/images/asf_logo_wide.gif</organization.logo>
     <gpg.useagent>true</gpg.useagent>
     <arguments />
-    <!-- Specify the default compiler source/target as 1.4 for backwards compatibility
+    <!- Specify the default compiler source/target as 1.4 for backwards compatibility
     <maven.compiler.source>1.4</maven.compiler.source>
     <maven.compiler.target>1.4</maven.compiler.target -->    
   </properties>
