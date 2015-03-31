@@ -16,8 +16,7 @@ Probably want to extend with inspiration from https://github.com/kevinsawicki/gi
   <packaging>pom</packaging>
 
   <name>teletronics.ae</name>
-  <!-- description>
-  </description -->
+  <description>Maven parent for all teletronics.ae open-source</description>
   <url>http://www.teletronics.ae</url>
   <organization>
     <name>teletronics.ae</name>
@@ -43,6 +42,15 @@ Probably want to extend with inspiration from https://github.com/kevinsawicki/gi
     <connection>scm:git:git://github.com/TeletronicsDotAe/maven-cross-organization.git</connection>
     <developerConnection>scm:git:git://github.com/TeletronicsDotAe/maven-cross-organization.git</developerConnection>
   </scm>
+  
+  <developers>
+    <developer>
+      <email>open-source@teletronics.ae</email>
+      <name>Teletronics UAE Open-Source</name>
+      <url>https://github.com/TeletronicsDotAe</url>
+      <id>open-source-teletronics.ae</id>
+    </developer>
+  </developers>
 
   <distributionManagement>
     <snapshotRepository>
