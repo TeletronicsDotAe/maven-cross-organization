@@ -12,7 +12,7 @@ Probably want to extend with inspiration from https://github.com/kevinsawicki/gi
 
   <groupId>ae.teletronics</groupId>
   <artifactId>godfather</artifactId>
-  <version>1.0</version>
+  <version>0.9</version>
   <packaging>pom</packaging>
 
   <name>teletronics.ae</name>
